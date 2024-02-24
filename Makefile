@@ -1,4 +1,4 @@
-PROJECT_NAME ?= student-api
+PROJECT_NAME ?= students-api
 PROJECT_NAMESPACE ?= temaxuck
 REGISTRY_IMAGE ?= $(PROJECT_NAMESPACE)/$(PROJECT_NAME)
 
