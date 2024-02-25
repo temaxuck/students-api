@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post "students/", to: "students#create"
+  delete 'students/:id', to: "students#destroy"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
