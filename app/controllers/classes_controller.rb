@@ -6,5 +6,10 @@ class ClassesController < ApplicationController
   end
 
   def show
+    @school = School.find(params[:school_id])
+    @course = @school.courses.find(params[:school_id])
+    @students = @course.students
+
+    render json: {data: @students.map(&:students_json_builder)}, status: :ok
   end
 end

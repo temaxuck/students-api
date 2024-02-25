@@ -11,4 +11,14 @@ class Student < ApplicationRecord
       self.secret_salt = SecureRandom.hex(16)
     end
 
+    def students_json_builder
+      {
+        id: id,
+        first_name: first_name,
+        last_name: last_name,
+        surname: surname,
+        class_id: course_id,
+        school_id: course.school.id
+      }
+    end
 end
