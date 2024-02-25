@@ -31,7 +31,6 @@ module JwtAuthenticatable
     else
       begin
         @actual_student = Student.find(decoded_payload["student_id"].to_i)
-        puts @actual_student == expected_student
         return same_students?(@actual_student, expected_student, decoded_payload)
       rescue ActiveRecord::RecordNotFound
         return false

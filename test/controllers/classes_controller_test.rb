@@ -1,6 +1,9 @@
 require "test_helper"
+require_relative "concerns/get_response_values.rb"
 
 class ClassesControllerTest < ActionDispatch::IntegrationTest
+  include GetResponseValues
+
   setup do
     @school = schools(:one)
     @course = courses(:one)
@@ -45,9 +48,4 @@ class ClassesControllerTest < ActionDispatch::IntegrationTest
     assert expected_json == json_response, "Actual json response is incorrect"
   end
 
-  private
-    def json_response
-      (ActiveSupport::JSON.decode @response.body).deep_symbolize_keys
-    end
-    
 end

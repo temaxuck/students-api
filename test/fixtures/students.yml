@@ -6,7 +6,7 @@ one:
   last_name: test-last-name
   surname: test-surname
   course_id: 1
-  secret_salt: secret-salt-hex
+  secret_salt: secret-salt-hex-1
 
 two:
   id: 2
@@ -14,4 +14,4 @@ two:
   last_name: test-last-name
   surname: test-surname
   course_id: 2
-  secret_salt: secret-salt-hex
+  secret_salt: secret-salt-hex-2

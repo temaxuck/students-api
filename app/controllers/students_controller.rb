@@ -5,8 +5,8 @@ class StudentsController < ApplicationController
     @course = Course.find(params[:class_id])
     @student = @course.students.create(
       first_name: params[:first_name],
-      last_name: params[:last_name],
-      surname: params[:surname] ? params[:surname] : nil
+      last_name: params[:last_name] ? params[:last_name] : nil,
+      surname: params[:surname]
     )
 
     
