@@ -4,12 +4,12 @@ one:
   first_name: MyString
   last_name: MyString
   surname: MyString
-  course: one
-  school_id: 1
+  course_id: 1
+  secret_salt: secret-salt-hex
 
 two:
   first_name: MyString
   last_name: MyString
   surname: MyString
-  course: two
-  school_id: 1
+  course_id: 2
+  secret_salt: secret-salt-hex

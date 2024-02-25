@@ -1,11 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   number: 1
-  letter: MyString
+  letter: А
   students_count: 1
+  school_id: 1
 
 two:
+  id: 2
   number: 1
-  letter: MyString
+  letter: Б
   students_count: 1
+  school_id: 1
