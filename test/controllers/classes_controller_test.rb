@@ -4,7 +4,6 @@ class ClassesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @school = schools(:one)
     @course = courses(:one)
-    @student = students(:one)
   end
   
   test "should get index" do
