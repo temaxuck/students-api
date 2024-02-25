@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module StudentsApi
   class Application < Rails::Application
+    VERSION = "0.1.0"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
