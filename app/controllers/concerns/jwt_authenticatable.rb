@@ -7,13 +7,13 @@ module JwtAuthenticatable
       secret_salt: secret_salt
     }
 
-    token = JWT.encode payload, Rails.application.config.secret_key, "HS256"
+    token = JWT.encode payload, Rails.application.config.secret_key_base, "HS256"
 
     return token
   end
 
   def decode_jwt(auth_token)
-    decoded_token = JWT.decode auth_token, Rails.application.config.secret_key, true, { algorithm: 'HS256' }
+    decoded_token = JWT.decode auth_token, Rails.application.config.secret_key_base, true, { algorithm: 'HS256' }
     return decoded_token[0]
   rescue JWT::DecodeError
     return nil

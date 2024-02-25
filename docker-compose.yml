@@ -1,0 +1,48 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "
+        bundle exec rails db:create &&
+        bundle exec rails db:schema:load &&
+        bundle exec rails db:seed &&
+        bundle exec rails s -p 3000 -b '0.0.0.0'
+      "
+    volumes:
+      - .:/students-api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - backend
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+      POSTGRES_CI_DATABASE: ${POSTGRES_CI_DATABASE}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      RAILS_MAX_THREADS: ${RAILS_MAX_THREADS}
+
+volumes:
+  db_data:
+
+networks:
+  backend:
