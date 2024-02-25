@@ -29,4 +29,25 @@ class CourseTest < ActiveSupport::TestCase
     assert_not course.save, "Saved course with letter which length is not equal to 1: %s" % course_letter
   end
 
+  test "created course should have correct students_count field" do
+    course = @school.courses.create(number: 1, letter: "A")
+    
+    assert course.students_count == 0, "Course instance has incorrect students count: %d, but should have %d" % [course.students_count, 0]
+
+    student = course.students.create(first_name: "test-first-name", surname: "test-surname")
+    assert course.students_count == 1, "Course instance has incorrect students count: %d, but should have %d" % [course.students_count, 1]
+
+    another_course = @school.courses.create(number: 1, letter: "B")
+    student.course = another_course
+    student.save
+    course.reload
+    assert course.students_count == 0, "Course instance has incorrect students count: %d, but should have %d" % [course.students_count, 0]
+
+    student.course = course
+    student.save
+    course.reload
+    student.destroy
+    assert course.students_count == 0, "Course instance has incorrect students count: %d, but should have %d" % [course.students_count, 0]
+  end
+
 end
