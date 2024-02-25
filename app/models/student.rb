@@ -4,7 +4,7 @@ class Student < ApplicationRecord
   belongs_to :course, counter_cache: :students_count
 
   validates :first_name, presence: true, length: { minimum: 1 }
-  validates :last_name, presence: true, length: { minimum: 1 }
+  validates :surname, presence: true, length: { minimum: 1 }
   
   public
     def generate_secret_salt
