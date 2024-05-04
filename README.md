@@ -1,8 +1,6 @@
 # StudentsAPI
 
-This is a job interview assignment for the internship at one of Vkontakte's services. 
-
-So this application is written in [Ruby](https://www.ruby-lang.org/en/) using [Rails](https://rubyonrails.org/) framework. The terms of reference for this API is located at [`docs/openapi.yml`](https://github.com/temaxuck/students-api/blob/main/docs/openapi.yaml).
+This application is written in [Ruby](https://www.ruby-lang.org/en/) using [Rails](https://rubyonrails.org/) framework. The terms of reference for this API is located at [`docs/openapi.yml`](https://github.com/temaxuck/students-api/blob/main/docs/openapi.yaml).
 
 ## Requirements
 
